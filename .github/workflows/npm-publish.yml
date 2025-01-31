@@ -8,6 +8,9 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
 
     steps:
       - name: Checkout Code
@@ -21,6 +24,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      # Remove this if your project doesn't need a build step
       # - name: Build App
       #   run: npm run build
 
